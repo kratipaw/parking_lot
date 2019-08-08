@@ -1,7 +1,10 @@
 package main.java.com.parkingLot;
 
+import main.java.com.parkingLot.constants.Messages;
 import main.java.com.parkingLot.parkingFloor.NearestFromEntryComparator;
 import main.java.com.parkingLot.parkingFloor.ParkingSpot;
+import main.java.com.parkingLot.vehicle.Car;
+import main.java.com.parkingLot.vehicle.Vehicle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,16 +43,31 @@ public class ParkingLot {
         return parkingLotInstance;
     }
 
-    private static void initializeParkingLot(int capacity) throws Exception {
+    public static String initializeParkingLot(int capacity) throws Exception {
 
-        if (parkingLotInstance == null)
+        if (parkingLotInstance == null) {
             parkingLotInstance = new ParkingLot(capacity);
-
+            return Messages.PARKING_LOT_INITIATED + capacity + " slots.";
+        }
         else
             throw new Exception("Parking Lot is already initialized.");
+
     }
 
-    public static void destroy() {
+    public static String assignParkingSpotToCar(Vehicle car){
+
+        if(unoccupiedSpotsForCar.isEmpty())
+            return Messages.PARKING_LOT_FULL;
+
+        ParkingSpot pSpot = unoccupiedSpotsForCar.first();
+        unoccupiedSpotsForCar.remove(pSpot);
+        pSpot.assignVehicle(car);
+        occupiedSpotsForCar.put(pSpot.getSpotId(), pSpot);
+
+        return Messages.CAR_PARK + pSpot.getSpotId();
+    }
+
+    public static void destroyParkingLotInstance() {
         if (parkingLotInstance != null)
             parkingLotInstance = null;
     }
