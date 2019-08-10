@@ -6,4 +6,5 @@ public class Messages {
     public static String PARKING_LOT_FULL = "Sorry, parking lot is full";
     public static String PARKING_LOT_INITIATED = "Created a parking lot with ";
     public static String CAR_PARK = "Allocated slot number: ";
+    public static String PRINT_STATUS = "Slot No.    Registration No    Colour";
 }

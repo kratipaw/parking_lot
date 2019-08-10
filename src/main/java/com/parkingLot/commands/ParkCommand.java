@@ -27,7 +27,6 @@ public class ParkCommand extends BaseCommand{
 
     @Override
     protected String executeCommand() {
-
-        return ParkingLot.assignParkingSpotToCar(vehicle);
+        return ParkingLot.parkCar(vehicle);
     }
 }

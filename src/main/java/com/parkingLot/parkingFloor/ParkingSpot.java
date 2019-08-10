@@ -1,5 +1,6 @@
 package main.java.com.parkingLot.parkingFloor;
 
+import main.java.com.parkingLot.vehicle.Car;
 import main.java.com.parkingLot.vehicle.Vehicle;
 
 public class ParkingSpot {
@@ -32,5 +33,16 @@ public class ParkingSpot {
 
     public int getSpotId() {
         return spotId;
+    }
+
+    private Car getVehicleCar(){
+        return (Car) vehicle;
+    }
+
+    @Override
+    public String toString() {
+        return this.spotId + "           " +
+                this.vehicle.getRegistrationNumber() + "      " +
+                this.getVehicleCar().getColor();
     }
 }

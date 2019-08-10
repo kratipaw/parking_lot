@@ -54,7 +54,7 @@ public class ParkingLot {
 
     }
 
-    public static String assignParkingSpotToCar(Vehicle car){
+    public static String parkCar(Vehicle car){
 
         if(unoccupiedSpotsForCar.isEmpty())
             return Messages.PARKING_LOT_FULL;
@@ -65,6 +65,14 @@ public class ParkingLot {
         occupiedSpotsForCar.put(pSpot.getSpotId(), pSpot);
 
         return Messages.CAR_PARK + pSpot.getSpotId();
+    }
+
+    public static void printStatusOfParkedCar(){
+
+        System.out.println(Messages.PRINT_STATUS);
+        for(ParkingSpot pSpot : occupiedSpotsForCar.values()){
+            System.out.println(pSpot.toString());
+        }
     }
 
     public static void destroyParkingLotInstance() {
