@@ -1,4 +1,4 @@
-package main.java.com.parkingLot.exceptions;
+package com.parkingLot.exceptions;
 
 public class InvalidCommandArguments extends Exception{
 
