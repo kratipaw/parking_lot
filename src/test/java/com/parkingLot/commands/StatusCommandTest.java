@@ -1,7 +1,6 @@
 package com.parkingLot.commands;
 
 import com.parkingLot.ParkingLot;
-import com.parkingLot.constants.Messages;
 import com.parkingLot.constants.VehicleType;
 import com.parkingLot.vehicle.Car;
 import org.junit.Test;
