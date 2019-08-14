@@ -1,7 +1,7 @@
-package main.java.com.parkingLot.parkingFloor;
+package com.parkingLot.parkingFloor;
 
-import main.java.com.parkingLot.vehicle.Car;
-import main.java.com.parkingLot.vehicle.Vehicle;
+import com.parkingLot.vehicle.Car;
+import com.parkingLot.vehicle.Vehicle;
 
 public class ParkingSpot {
 
@@ -35,7 +35,7 @@ public class ParkingSpot {
         return spotId;
     }
 
-    private Car getVehicleCar(){
+    public Car getVehicleCar(){
         return (Car) vehicle;
     }
 

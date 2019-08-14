@@ -1,8 +1,8 @@
-package main.java.com.parkingLot.vehicle;
+package com.parkingLot.vehicle;
 
-import main.java.com.parkingLot.constants.VehicleType;
+import com.parkingLot.constants.VehicleType;
 
-class Vehicle {
+public class Vehicle {
 
     private String registrationNumber;
 

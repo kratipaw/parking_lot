@@ -1,4 +1,4 @@
-package main.java.com.parkingLot.parkingFloor;
+package com.parkingLot.parkingFloor;
 
 import java.util.Comparator;
 

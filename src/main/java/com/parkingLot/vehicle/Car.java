@@ -1,6 +1,6 @@
-package main.java.com.parkingLot.vehicle;
+package com.parkingLot.vehicle;
 
-import main.java.com.parkingLot.constants.VehicleType;
+import com.parkingLot.constants.VehicleType;
 
 public class Car extends Vehicle {
 
