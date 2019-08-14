@@ -1,6 +1,5 @@
 package com.parkingLot.commands;
 
-import com.parkingLot.commands.BaseCommand;
 import com.parkingLot.ParkingLot;
 import com.parkingLot.constants.Messages;
 import com.parkingLot.parkingFloor.ParkingSpot;
@@ -12,12 +11,15 @@ public class RegNumForCarsWithGivenColorCommand extends BaseCommand {
 
     @Override
     protected boolean isValidCommand(String[] cmdTokens) {
-        if(cmdTokens.length == 2){
-            color = cmdTokens[1];
-            return true;
-        }
+        if(cmdTokens.length != 2)
+            return false;
 
-        return false;
+        if(cmdTokens[1] == null || cmdTokens[1].isEmpty())
+            return false;
+
+        color = cmdTokens[1];
+
+        return true;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class RegNumForCarsWithGivenColorCommand extends BaseCommand {
             Car car = pSpot.getVehicleCar();
 
             if(car.getColor().equalsIgnoreCase(color))
-                registrationNumbersWithGivenColor.append(pSpot.getSpotId()).append(", ");
+                registrationNumbersWithGivenColor.append(car.getRegistrationNumber()).append(", ");
         }
 
         int resultLength = registrationNumbersWithGivenColor.length();
