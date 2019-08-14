@@ -8,9 +8,7 @@ import com.parkingLot.parkingFloor.ParkingSpot;
 public class StatusCommand extends BaseCommand {
     @Override
     protected boolean isValidCommand(String[] cmdTokens) {
-
         return cmdTokens.length == 1;
-
     }
 
     @Override
