@@ -73,6 +73,9 @@ public class ParkingLot {
 
     public static String leaveCarFromGivenSpotId(int spotId){
 
+        if(spotId > maxCapacity)
+            return Messages.NOT_FOUND;
+
         if(!occupiedSpotsForCar.containsKey(spotId))
             return Messages.PARKING_SPOT_EMPTY;
 

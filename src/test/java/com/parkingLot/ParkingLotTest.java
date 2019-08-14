@@ -36,9 +36,9 @@ public class ParkingLotTest {
         try {
             ParkingLot.initializeParkingLot(5);
             ParkingLot.initializeParkingLot(10);
-            ParkingLot.destroyParkingLotInstance();
         } catch (Exception e) {
             assertEquals(e.getMessage(), "Parking Lot is already initialized.");
+            ParkingLot.destroyParkingLotInstance();
         }
     }
 
@@ -70,13 +70,11 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void leaveCarFromGivenEmptySpotId(){
-
+    public void leaveCarFromGivenInvalidSpotId(){
         try {
-            ParkingLot.initializeParkingLot(2);
-            ParkingLot.parkCar(new Car(VehicleType.CAR, "Test-Reg-Num-1", "white"));
+            ParkingLot.initializeParkingLot(1);
             String result = ParkingLot.leaveCarFromGivenSpotId(2);
-            assertEquals(Messages.PARKING_SPOT_EMPTY, result);
+            assertEquals(Messages.NOT_FOUND, result);
             ParkingLot.destroyParkingLotInstance();
         } catch (Exception e) {
             fail();
@@ -84,9 +82,11 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void leaveCarFromGivenInvalidSpotId(){
+    public void leaveCarFromGivenEmptySpotId(){
+
         try {
-            ParkingLot.initializeParkingLot(1);
+            ParkingLot.initializeParkingLot(2);
+            ParkingLot.parkCar(new Car(VehicleType.CAR, "Test-Reg-Num-1", "white"));
             String result = ParkingLot.leaveCarFromGivenSpotId(2);
             assertEquals(Messages.PARKING_SPOT_EMPTY, result);
             ParkingLot.destroyParkingLotInstance();
