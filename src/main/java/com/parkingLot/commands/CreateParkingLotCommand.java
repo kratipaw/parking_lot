@@ -1,6 +1,6 @@
-package main.java.com.parkingLot.commands;
+package com.parkingLot.commands;
 
-import main.java.com.parkingLot.ParkingLot;
+import com.parkingLot.ParkingLot;
 
 public class CreateParkingLotCommand extends BaseCommand{
 

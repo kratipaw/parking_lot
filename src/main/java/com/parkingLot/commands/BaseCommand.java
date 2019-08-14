@@ -1,4 +1,4 @@
-package main.java.com.parkingLot.commands;
+package com.parkingLot.commands;
 
 public abstract class BaseCommand {
 
@@ -9,7 +9,7 @@ public abstract class BaseCommand {
     public String validateAndExecuteCommand(String[] cmdTokens) throws Exception {
 
         if(isValidCommand(cmdTokens))
-            executeCommand();
+            return executeCommand();
 
         return "";
     }

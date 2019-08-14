@@ -1,11 +1,12 @@
-package main.java.com.parkingLot.commands;
+package com.parkingLot.commands;
 
-import main.java.com.parkingLot.ParkingLot;
-import main.java.com.parkingLot.constants.VehicleType;
-import main.java.com.parkingLot.vehicle.Car;
-import main.java.com.parkingLot.vehicle.Vehicle;
+import com.parkingLot.commands.BaseCommand;
+import com.parkingLot.ParkingLot;
+import com.parkingLot.constants.VehicleType;
+import com.parkingLot.vehicle.Car;
+import com.parkingLot.vehicle.Vehicle;
 
-public class ParkCommand extends BaseCommand{
+public class ParkCommand extends BaseCommand {
 
     private String registrationNumber = "";
     private String color = "";
