@@ -1,10 +1,10 @@
-package main.java.com.parkingLot;
+package com.parkingLot;
 
-import main.java.com.parkingLot.constants.Messages;
-import main.java.com.parkingLot.parkingFloor.NearestFromEntryComparator;
-import main.java.com.parkingLot.parkingFloor.ParkingSpot;
-import main.java.com.parkingLot.vehicle.Car;
-import main.java.com.parkingLot.vehicle.Vehicle;
+import com.parkingLot.constants.Messages;
+import com.parkingLot.parkingFloor.NearestFromEntryComparator;
+import com.parkingLot.parkingFloor.ParkingSpot;
+import com.parkingLot.vehicle.Car;
+import com.parkingLot.vehicle.Vehicle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class ParkingLot {
         }
     }
 
-    private static ParkingLot getParkingLotInstance() throws Exception {
+    static ParkingLot getParkingLotInstance() throws Exception {
 
         if (parkingLotInstance == null) {
             throw new Exception("Please initialize the parking lot first.");
@@ -67,15 +67,23 @@ public class ParkingLot {
         return Messages.CAR_PARK + pSpot.getSpotId();
     }
 
-    public static void printStatusOfParkedCar(){
-
-        System.out.println(Messages.PRINT_STATUS);
-        for(ParkingSpot pSpot : occupiedSpotsForCar.values()){
-            System.out.println(pSpot.toString());
-        }
+    public static Map<Integer, ParkingSpot> getOccupiedSpotsForCar() {
+        return occupiedSpotsForCar;
     }
 
-    public static void destroyParkingLotInstance() {
+    public static String leaveCarFromGivenSpotId(int spotId){
+
+        if(!occupiedSpotsForCar.containsKey(spotId))
+            return Messages.PARKING_SPOT_EMPTY;
+
+        ParkingSpot parkingSpot = occupiedSpotsForCar.get(spotId);
+        parkingSpot.removeVehicle();
+        occupiedSpotsForCar.remove(spotId);
+        unoccupiedSpotsForCar.add(parkingSpot);
+        return Messages.PARKING_SPOT + spotId + " is free";
+    }
+
+    static void destroyParkingLotInstance() {
         if (parkingLotInstance != null)
             parkingLotInstance = null;
     }
