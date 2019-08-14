@@ -1,22 +1,26 @@
-package main.java.com.parkingLot.commands;
+package com.parkingLot.commands;
 
-import main.java.com.parkingLot.ParkingLot;
+import com.parkingLot.commands.BaseCommand;
+import com.parkingLot.ParkingLot;
+import com.parkingLot.constants.Messages;
+import com.parkingLot.parkingFloor.ParkingSpot;
 
-public class StatusCommand extends BaseCommand{
+public class StatusCommand extends BaseCommand {
     @Override
     protected boolean isValidCommand(String[] cmdTokens) {
 
-        if (cmdTokens.length != 1)
-            return false;
-
-        return false;
+        return cmdTokens.length == 1;
 
     }
 
     @Override
     protected String executeCommand() {
 
-        ParkingLot.printStatusOfParkedCar();
+        System.out.println(Messages.PRINT_STATUS);
+        for(ParkingSpot pSpot : ParkingLot.getOccupiedSpotsForCar().values()){
+            System.out.println(pSpot.toString());
+        }
+
         return "";
     }
 }

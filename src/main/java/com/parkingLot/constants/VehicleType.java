@@ -1,4 +1,4 @@
-package main.java.com.parkingLot.constants;
+package com.parkingLot.constants;
 
 public enum VehicleType {
 
