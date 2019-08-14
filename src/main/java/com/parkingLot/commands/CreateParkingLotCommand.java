@@ -12,6 +12,9 @@ public class CreateParkingLotCommand extends BaseCommand{
         if(cmdTokens.length != 2)
             return false;
 
+        if(Integer.parseInt(cmdTokens[1]) <= 0)
+            return false;
+
         parkingLotCapacity = Integer.parseInt(cmdTokens[1]);
 
         return true;

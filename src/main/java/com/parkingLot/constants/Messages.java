@@ -11,5 +11,6 @@ public class Messages {
     public static final  String PARKING_SPOT = "Slot number ";
     public static final String PARKING_LOT_EMPTY = "Parking Lot is empty !!";
     public static final String INVALID_COMMAND = "Invalid command !!";
-
+    public static final String PARKING_LOT_NOT_INITIALIZED = "Please initialize the parking lot first.";
+    public static final String PARKING_LOT_ALREADY_INITIALIZED = "Parking Lot is already initialized.";
 }

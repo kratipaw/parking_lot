@@ -38,7 +38,7 @@ public class ParkingLot {
     static ParkingLot getParkingLotInstance() throws Exception {
 
         if (parkingLotInstance == null) {
-            throw new Exception("Please initialize the parking lot first.");
+            throw new Exception(Messages.PARKING_LOT_NOT_INITIALIZED);
         }
         return parkingLotInstance;
     }
@@ -50,7 +50,7 @@ public class ParkingLot {
             return Messages.PARKING_LOT_INITIATED + capacity + " slots.";
         }
         else
-            throw new Exception("Parking Lot is already initialized.");
+            throw new Exception(Messages.PARKING_LOT_ALREADY_INITIALIZED);
 
     }
 
@@ -83,7 +83,7 @@ public class ParkingLot {
         return Messages.PARKING_SPOT + spotId + " is free";
     }
 
-    static void destroyParkingLotInstance() {
+    public static void destroyParkingLotInstance() {
         if (parkingLotInstance != null)
             parkingLotInstance = null;
     }
