@@ -1,4 +1,19 @@
-package main.java.com.parkingLot.input;
+package com.parkingLot.input;
 
-public class FileInputProcessor extends BaseInputProcessor{
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class FileInputProcessor extends BaseInputProcessor {
+
+    FileInputProcessor(BufferedReader inputReader) {
+        super(inputReader);
+    }
+
+    @Override
+    public void readInputAndProcess() throws Exception{
+        String line;
+        while ((line = this.getInputReader().readLine()) != null) {
+            processInputLine(line);
+        }
+    }
 }
