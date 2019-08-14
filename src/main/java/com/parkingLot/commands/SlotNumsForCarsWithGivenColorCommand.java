@@ -12,12 +12,15 @@ public class SlotNumsForCarsWithGivenColorCommand extends BaseCommand {
 
     @Override
     protected boolean isValidCommand(String[] cmdTokens) {
-        if(cmdTokens.length == 2){
-            color = cmdTokens[1];
-            return true;
-        }
+        if(cmdTokens.length != 2)
+            return false;
 
-        return false;
+        if(cmdTokens[1] == null || cmdTokens[1].isEmpty())
+            return false;
+
+        color = cmdTokens[1];
+
+        return true;
     }
 
     @Override
