@@ -1,6 +1,5 @@
 package com.parkingLot.commands;
 
-import com.parkingLot.commands.BaseCommand;
 import com.parkingLot.ParkingLot;
 import com.parkingLot.constants.Messages;
 import com.parkingLot.parkingFloor.ParkingSpot;
@@ -12,12 +11,15 @@ public class SlotNumForGivenRegNumCommand extends BaseCommand {
 
     @Override
     protected boolean isValidCommand(String[] cmdTokens) {
-        if(cmdTokens.length == 2){
-            registrationNumber = cmdTokens[1];
-            return true;
-        }
+        if(cmdTokens.length != 2)
+            return false;
 
-        return false;
+        if(cmdTokens[1] == null || cmdTokens[1].isEmpty())
+            return false;
+
+        registrationNumber = cmdTokens[1];
+
+        return true;
     }
 
     @Override
