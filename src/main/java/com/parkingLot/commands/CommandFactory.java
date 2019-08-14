@@ -30,21 +30,24 @@ public class CommandFactory {
 
             case LEAVE:
                 out = new LeaveCommand();
+                break;
 
             case GET_SLOT_NUM_FROM_REG_NUM:
                 out = new SlotNumForGivenRegNumCommand();
+                break;
 
             case GET_SLOT_NUM_FROM_COLOR:
                 out = new SlotNumsForCarsWithGivenColorCommand();
+                break;
 
             case GET_REG_NUM_FROM_COLOR:
                 out = new RegNumForCarsWithGivenColorCommand();
-
+                break;
             case EXIT:
                 System.exit(0);
 
             default:
-                throw new InvalidCommand("Invalid Command");
+                throw new InvalidCommand(Messages.INVALID_COMMAND);
         }
 
         return out;
