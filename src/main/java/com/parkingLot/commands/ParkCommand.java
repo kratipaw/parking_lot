@@ -18,6 +18,9 @@ public class ParkCommand extends BaseCommand {
         if(cmdTokens.length != 3)
             return false;
 
+        if(cmdTokens[1] == null || cmdTokens[2] == null  || cmdTokens[1].isEmpty() || cmdTokens[2].isEmpty())
+            return false;
+
         registrationNumber = cmdTokens[1];
         color = cmdTokens[2];
 
